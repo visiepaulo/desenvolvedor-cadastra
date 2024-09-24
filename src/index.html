@@ -40,32 +40,86 @@
                 </select>
             </div>
 
-            <aside class="filter">
-                <form>
-                    <div id="colors" class="filter-colors">
-                        <span>cores</span>
-                    </div>
-                    <div id="sizes" class="filter-sizes">
-                        <span>tamanhos</span>
-                    </div>
-                    <div id="prices" class="filter-prices">
-                        <span>Faixa de preço</span>
-                        <label> <input type="checkbox" name="price" value="0-50" /> de R$ 0,00 a R$ 50,00 </label>
-                        <label> <input type="checkbox" name="price" value="51-150" /> de R$ 51,00 a R$ 150,00 </label>
-                        <label> <input type="checkbox" name="price" value="151-300" /> de R$ 151,00 a R$ 300,00 </label>
-                        <label> <input type="checkbox" name="price" value="301-500" /> de R$ 301,00 a R$ 500,00 </label>
-                        <label> <input type="checkbox" name="price" value="500" /> a partir de R$ 500 </label>
-                    </div>
-                </form>
-            </aside>
+            <div class="limit content-products">
+                <aside class="filter">
+                    <form>
+                        <div id="colors" class="filter-colors">
+                            <span>cores</span>
+                        </div>
+                        <div id="sizes" class="filter-sizes">
+                            <span>tamanhos</span>
+                        </div>
+                        <div id="prices" class="filter-prices">
+                            <span>Faixa de preço</span>
+                            <label> <input type="checkbox" name="price" value="0-50" /> de R$ 0,00 a R$ 50,00 </label>
+                            <label>
+                                <input type="checkbox" name="price" value="51-150" /> de R$ 51,00 a R$ 150,00
+                            </label>
+                            <label>
+                                <input type="checkbox" name="price" value="151-300" /> de R$ 151,00 a R$ 300,00
+                            </label>
+                            <label>
+                                <input type="checkbox" name="price" value="301-500" /> de R$ 301,00 a R$ 500,00
+                            </label>
+                            <label> <input type="checkbox" name="price" value="500" /> a partir de R$ 500 </label>
+                        </div>
+                    </form>
+                </aside>
 
-            <article class="products">
-                <div class="limit">
-                    <div id="products" class="products-list"></div>
-                </div>
-            </article>
+                <article class="products">
+                    <div id="products" class="product-list">
+                        <a class="product-card">
+                            <figure class="product-card__figure">
+                                <img class="product-card__image" src="https://placehold.co/195x293" alt="Blusa 1" />
+                                <figcaption class="product-card__content">
+                                    <h2 class="product-name">Blusa 1</h2>
+                                    <p class="product-price">R$ 100,00</p>
+                                    <p class="product-installments">Até 3x de R$ 33,33</p>
+                                    <button class="buy-button">Comprar</button>
+                                </figcaption>
+                            </figure>
+                        </a>
 
-            <aside id="cart" class="cart"></aside>
+                        <a class="product-card">
+                            <figure class="product-card__figure">
+                                <img class="product-card__image" src="https://placehold.co/195x293" alt="Blusa 1" />
+                                <figcaption class="product-card__content">
+                                    <h2>Blusa 1</h2>
+                                    <p>R$ 100,00</p>
+                                    <p>Até 3x de R$ 33,33</p>
+                                    <button>Comprar</button>
+                                </figcaption>
+                            </figure>
+                        </a>
+
+                        <a class="product-card">
+                            <figure class="product-card__figure">
+                                <img class="product-card__image" src="https://placehold.co/195x293" alt="Blusa 1" />
+                                <figcaption class="product-card__content">
+                                    <h2>Blusa 1</h2>
+                                    <p>R$ 100,00</p>
+                                    <p>Até 3x de R$ 33,33</p>
+                                    <button>Comprar</button>
+                                </figcaption>
+                            </figure>
+                        </a>
+
+                        <a class="product-card">
+                            <figure class="product-card__figure">
+                                <img class="product-card__image" src="https://placehold.co/195x293" alt="Blusa 1" />
+                                <figcaption class="product-card__content">
+                                    <h2>Blusa 1</h2>
+                                    <p>R$ 100,00</p>
+                                    <p>Até 3x de R$ 33,33</p>
+                                    <button>Comprar</button>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <aside id="cart" class="cart">carrinho aqui</aside>
         </main>
 
         <footer class="footer">

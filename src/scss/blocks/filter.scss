@@ -1,0 +1,20 @@
+@import '../colors.scss';
+.filter {
+    .filter-colors,
+    .filter-sizes,
+    .filter-prices {
+        display: flex;
+        flex-direction: column;
+
+        span {
+            text-transform: uppercase;
+            font-size: 16px;
+            color: $mine-shaft;
+            margin-bottom: 16px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+    }
+}

@@ -16,4 +16,10 @@
             font-size: 32px;
         }
     }
+
+    .content-products {
+        display: grid;
+        grid-template-columns: 1fr 80%;
+        gap: 44px;
+    }
 }
