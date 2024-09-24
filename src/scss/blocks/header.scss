@@ -1,0 +1,12 @@
+@import '../colors.scss';
+
+.header {
+    border-bottom: solid 2px $silver;
+}
+
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

@@ -1,4 +1,4 @@
-import { Product } from "./Product";
+import { Product } from "./models/Product";
 
 const serverUrl = "http://localhost:5000";
 
