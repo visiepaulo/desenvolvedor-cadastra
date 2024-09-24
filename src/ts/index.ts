@@ -15,6 +15,50 @@ function isProduct(obj: any): obj is Product {
     )
 }
 
+function extractFilters(products: Product[]) {
+    const colorsSet = new Set<string>()
+    const sizesSet = new Set<string>()
+
+    products.forEach(product => {
+        colorsSet.add(product.color)
+        product.size.forEach(size => sizesSet.add(size))
+    })
+
+    return {
+        colors: Array.from(colorsSet),
+        sizes: Array.from(sizesSet),
+    }
+}
+
+function renderFilters(colors: string[], sizes: string[]) {
+    const colorsContainer = document.getElementById('colors')
+    const sizesContainer = document.getElementById('sizes')
+
+    if (colorsContainer) {
+        colors.forEach(color => {
+            const colorElement = document.createElement('div')
+            colorElement.className = 'filter-item'
+            colorElement.innerHTML = `
+                <input type="checkbox" id="color-${color}" name="color" value="${color}">
+                <label for="color-${color}">${color}</label>
+            `
+            colorsContainer.appendChild(colorElement)
+        })
+    }
+
+    if (sizesContainer) {
+        sizes.forEach(size => {
+            const sizeElement = document.createElement('div')
+            sizeElement.className = 'filter-item'
+            sizeElement.innerHTML = `
+                <input type="checkbox" id="size-${size}" name="size" value="${size}">
+                <label for="size-${size}">${size}</label>
+            `
+            sizesContainer.appendChild(sizeElement)
+        })
+    }
+}
+
 function renderProducts(products: Product[]) {
     const container = document.getElementById('products')
     if (container) {
@@ -49,6 +93,12 @@ function main() {
             const validProducts: Product[] = data.filter(isProduct)
 
             renderProducts(validProducts)
+
+            // Extraindo filtros
+            const { colors, sizes } = extractFilters(validProducts)
+
+            // Renderizando filtros
+            renderFilters(colors, sizes)
         } catch (error) {
             console.error('Erro ao buscar produtos:', error)
         }
