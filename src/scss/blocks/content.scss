@@ -1,0 +1,19 @@
+@import '../colors.scss';
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    .content-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 64px;
+
+        h1 {
+            color: $mine-shaft;
+            font-size: 32px;
+        }
+    }
+}
