@@ -33,10 +33,10 @@
             <div class="limit content-header">
                 <h1>Blusas</h1>
                 <div class="content-header__filters">
-                    <button id="filter-btn" class="filter-btn">Filtrar</button>
-                    <button id="sort-btn" class="sort-btn">Ordenar</button>
+                    <button class="filter-btn">Filtrar</button>
+                    <button class="sort-btn">Ordenar</button>
                 </div>
-                <select id="order" class="order">
+                <select id="select-sort" class="select-sort">
                     <option value="">Ordenar por:</option>
                     <option value="recent">Mais recentes</option>
                     <option value="price">Menor preço</option>
@@ -48,7 +48,7 @@
                 <aside id="filter" class="filter">
                     <div class="filter-header limit">
                         <span>filtrar</span
-                        ><button id="close-filter">
+                        ><button class="filter-btn">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="20"
@@ -133,6 +133,30 @@
                     <div class="filter-footer limit">
                         <button id="apply-filter" class="apply-filter">Aplicar filtros</button>
                         <button id="clear-filter" class="clear-filter">Limpar filtros</button>
+                    </div>
+                </aside>
+
+                <aside id="sort" class="sort">
+                    <div class="sort-header limit">
+                        <span>ordernar</span>
+                        <button class="sort-btn">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                fill="#000000"
+                                viewBox="0 0 256 256"
+                            >
+                                <path
+                                    d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"
+                                ></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="sort-content limit">
+                        <button>Mais recente</button>
+                        <button>Maior preço</button>
+                        <button>Menor preço</button>
                     </div>
                 </aside>
 

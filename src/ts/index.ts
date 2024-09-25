@@ -1,4 +1,5 @@
 import { Product } from './models/Product'
+import Teste from './models/Teste'
 
 const serverUrl = 'http://localhost:5000'
 
@@ -147,22 +148,19 @@ function main() {
     console.log(serverUrl)
 
     // funções para lidar com cliques nos botões de filtro
-    const filter_btn = document.getElementById('filter-btn')
-    const filter = document.getElementById('filter')
-    const close_filter = document.getElementById('close-filter')
+    const toggle_filter_btn = document.querySelectorAll('.filter-btn')
+    const filter_container = document.getElementById('filter')
     const apply_filter = document.getElementById('apply-filter')
 
-    if (filter_btn && filter && close_filter && apply_filter) {
-        filter_btn.addEventListener('click', () => {
-            filter.classList.add('open')
-        })
-
-        close_filter.addEventListener('click', () => {
-            filter.classList.remove('open')
+    if (toggle_filter_btn.length > 0 && filter_container && apply_filter) {
+        toggle_filter_btn.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filter_container.classList.toggle('open')
+            })
         })
 
         apply_filter.addEventListener('click', () => {
-            filter.classList.remove('open')
+            filter_container.classList.remove('open')
         })
     }
 
@@ -184,6 +182,17 @@ function main() {
 
         prices_btn.addEventListener('click', () => {
             filter_prices.classList.toggle('open')
+        })
+    }
+
+    const toggle_sort_btn = document.querySelectorAll('.sort-btn')
+    const sort_container = document.querySelector('#sort')
+
+    if (toggle_sort_btn.length > 0 && sort_container) {
+        toggle_sort_btn.forEach(btn => {
+            btn.addEventListener('click', () => {
+                sort_container.classList.toggle('open')
+            })
         })
     }
 
