@@ -1,7 +1,6 @@
 const path = require('path')
-const webpack = require('webpack')
 
-module.exports = paths => ({
+const webpackConfig = paths => ({
     entry: {
         main: path.resolve(__dirname, paths.scripts.src),
     },
@@ -13,9 +12,8 @@ module.exports = paths => ({
     module: {
         rules: [
             {
-                test: /\.(js|jsx|ts|tsx)$/,
+                test: /\.tsx?$/,
                 exclude: /(node_modules|bower_components)/,
-                include: path.resolve(__dirname, paths.scripts.src),
                 use: 'ts-loader',
             },
         ],
@@ -25,3 +23,5 @@ module.exports = paths => ({
     },
     plugins: [],
 })
+
+module.exports = webpackConfig

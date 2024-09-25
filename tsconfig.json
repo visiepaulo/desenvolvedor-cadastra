@@ -1,15 +1,12 @@
 {
     "compilerOptions": {
-        "outDir": "./dist/",
-        "noImplicitAny": true,
-        "module": "es6",
         "target": "es5",
-        "jsx": "react",
-        "allowJs": true,
-        "moduleResolution": "node",
-        "baseUrl": "./src", // Defina isso como o diretório base para importações
-        "paths": {
-            "*": ["*"] // Isso permite resolver importações relativas
-        }
-    }
+        "module": "esnext",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"]
 }

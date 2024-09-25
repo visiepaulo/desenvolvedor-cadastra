@@ -146,6 +146,7 @@ function renderProducts(products: Product[]) {
 
 function main() {
     console.log(serverUrl)
+    console.log('teste', new Teste('Paulo', 25, true))
 
     // funções para lidar com cliques nos botões de filtro
     const toggle_filter_btn = document.querySelectorAll('.filter-btn')
@@ -173,15 +174,21 @@ function main() {
 
     if (colors_btn && sizes_btn && prices_btn) {
         colors_btn.addEventListener('click', () => {
-            filter_colors.classList.toggle('open')
+            if (filter_colors) {
+                filter_colors.classList.toggle('open')
+            }
         })
 
         sizes_btn.addEventListener('click', () => {
-            filter_sizes.classList.toggle('open')
+            if (filter_sizes) {
+                filter_sizes.classList.toggle('open')
+            }
         })
 
         prices_btn.addEventListener('click', () => {
-            filter_prices.classList.toggle('open')
+            if (filter_prices) {
+                filter_prices.classList.toggle('open')
+            }
         })
     }
 
