@@ -1,66 +1,42 @@
+// API
+import fetchProducts from './api/fetchProducts'
+
+// FUNCTIONS
+import isProduct from './functions/isProduct'
+import extractFilters from './functions/extractFilters'
+
+// MODELS
 import { Product } from './models/Product'
-import Teste from './models/Teste'
+
+// RENDER
+import renderFilters from './renders/renderFilters'
 
 const serverUrl = 'http://localhost:5000'
 
-function isProduct(obj: any): obj is Product {
-    return (
-        typeof obj.id === 'string' &&
-        typeof obj.name === 'string' &&
-        typeof obj.price === 'number' &&
-        Array.isArray(obj.parcelamento) &&
-        typeof obj.color === 'string' &&
-        typeof obj.image === 'string' &&
-        Array.isArray(obj.size) &&
-        typeof obj.date === 'string'
-    )
-}
-
-function extractFilters(products: Product[]) {
-    const colorsSet = new Set<string>()
-    const sizesSet = new Set<string>()
-
-    products.forEach(product => {
-        colorsSet.add(product.color)
-        product.size.forEach(size => sizesSet.add(size))
-    })
-
-    return {
-        colors: Array.from(colorsSet),
-        sizes: Array.from(sizesSet),
-    }
-}
-
-function renderFilters(colors: string[], sizes: string[]) {
-    const colorsContainer = document.getElementById('colors')
-    const sizesContainer = document.getElementById('sizes')
-
-    if (colorsContainer) {
-        colors.forEach(color => {
-            const colorElement = document.createElement('div')
-            colorElement.className = 'filter-item'
-            colorElement.innerHTML = `
-                <label for="color-${color}">
-                    <input type="checkbox" id="color-${color}" name="color" value="${color}">
-                    <span class="checkmark"></span>
-                        ${color}
-                </label>
+export default function renderProducts(products: Product[]) {
+    const container = document.getElementById('products')
+    if (container) {
+        container.innerHTML = ''
+        displayedProducts = products.slice(0, productsPerPage)
+        displayedProducts.forEach(product => {
+            const productElement = document.createElement('a')
+            productElement.className = 'product-card'
+            productElement.href = '#'
+            productElement.innerHTML = `
+                <figure class="product-card__figure">
+                    <img class="product-card__image" src="${product.image}" alt="${product.name}" />
+                    <figcaption class="product-card__content">
+                        <h2 class="product-name">${product.name}</h2>
+                        <p class="product-price">R$ ${product.price.toFixed(2).replace('.', ',')}</p>
+                        <p class="product-installments">${product.parcelamento[0]} x R$ ${product.parcelamento[1]
+                .toFixed(2)
+                .replace('.', ',')}
+                        </p>
+                        <button class="buy-button">Comprar</button>
+                    </figcaption>
+                </figure>
             `
-            colorsContainer.appendChild(colorElement)
-        })
-    }
-
-    if (sizesContainer) {
-        sizes.forEach(size => {
-            const sizeElement = document.createElement('div')
-            sizeElement.className = 'filter-item'
-            sizeElement.innerHTML = `
-                <input type="checkbox" id="size-${size}" name="size" value="${size}">
-                <label for="size-${size}">
-                    ${size}
-                </label>
-            `
-            sizesContainer.appendChild(sizeElement)
+            container.appendChild(productElement)
         })
     }
 }
@@ -116,37 +92,8 @@ const productsPerPage = 9
 let currentProducts: Product[] = []
 let displayedProducts: Product[] = []
 
-function renderProducts(products: Product[]) {
-    const container = document.getElementById('products')
-    if (container) {
-        container.innerHTML = ''
-        displayedProducts = products.slice(0, productsPerPage)
-        displayedProducts.forEach(product => {
-            const productElement = document.createElement('a')
-            productElement.className = 'product-card'
-            productElement.href = '#'
-            productElement.innerHTML = `
-                <figure class="product-card__figure">
-                    <img class="product-card__image" src="${product.image}" alt="${product.name}" />
-                    <figcaption class="product-card__content">
-                        <h2 class="product-name">${product.name}</h2>
-                        <p class="product-price">R$ ${product.price.toFixed(2).replace('.', ',')}</p>
-                        <p class="product-installments">${product.parcelamento[0]} x R$ ${product.parcelamento[1]
-                .toFixed(2)
-                .replace('.', ',')}
-                        </p>
-                        <button class="buy-button">Comprar</button>
-                    </figcaption>
-                </figure>
-            `
-            container.appendChild(productElement)
-        })
-    }
-}
-
-function main() {
+async function main() {
     console.log(serverUrl)
-    console.log('teste', new Teste('Paulo', 25, true))
 
     // funções para lidar com cliques nos botões de filtro
     const toggle_filter_btn = document.querySelectorAll('.filter-btn')
@@ -203,33 +150,24 @@ function main() {
         })
     }
 
-    async function fetchProducts() {
-        try {
-            const response = await fetch('http://localhost:5000/products')
-            const data = await response.json()
+    // daqui pra baixo
+    const products = await fetchProducts()
+    const validProducts = products.filter(isProduct)
+    currentProducts = products.filter(isProduct)
 
-            const validProducts = data.filter(isProduct)
-            currentProducts = data.filter(isProduct)
-            console.log('Produtos:', validProducts)
-            renderProducts(currentProducts.slice(0, productsPerPage))
+    renderProducts(currentProducts.slice(0, productsPerPage))
 
-            const { colors, sizes } = extractFilters(validProducts)
+    const { colors, sizes } = extractFilters(validProducts)
 
-            renderFilters(colors, sizes)
+    renderFilters(colors, sizes)
 
-            setupFilterListeners()
+    setupFilterListeners()
 
-            const loadMoreButton = document.getElementById('load-more')
+    const loadMoreButton = document.getElementById('load-more')
 
-            if (loadMoreButton) {
-                loadMoreButton.addEventListener('click', showMoreProducts)
-            }
-        } catch (error) {
-            console.error('Erro ao buscar produtos:', error)
-        }
+    if (loadMoreButton) {
+        loadMoreButton.addEventListener('click', showMoreProducts)
     }
-
-    fetchProducts()
 }
 
 document.addEventListener('DOMContentLoaded', main)
