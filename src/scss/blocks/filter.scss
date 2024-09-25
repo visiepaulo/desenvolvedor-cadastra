@@ -1,5 +1,14 @@
 @import '../colors.scss';
 .filter {
+    .filter-header,
+    .filter-footer {
+        display: none;
+    }
+
+    svg {
+        display: none;
+    }
+
     .filter-colors,
     .filter-sizes,
     .filter-prices {
@@ -91,7 +100,8 @@
 
 @media (max-width: 980px) {
     .filter {
-        display: none;
+        display: flex;
+        flex-direction: column;
         position: fixed;
         top: 0;
         left: 0;
@@ -99,5 +109,100 @@
         height: 100%;
         overflow-y: auto;
         background-color: white;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            border-bottom: 1px solid $gray;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            margin-bottom: 30px;
+
+            span {
+                font-size: 24px;
+                text-transform: uppercase;
+                color: $gray-dove;
+            }
+        }
+
+        .filter-footer {
+            display: grid;
+            margin-top: auto;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            padding-bottom: 100px;
+
+            button {
+                border: solid 1px $gray;
+                color: $gray;
+                font-size: 14px;
+                width: 100%;
+                text-align: center;
+                padding: 8px 10px;
+                text-transform: uppercase;
+            }
+
+            .apply-filter {
+                background-color: $orange;
+                color: white;
+                border: solid 1px $orange;
+            }
+        }
+
+        svg {
+            display: block;
+        }
+
+        .filter-colors,
+        .filter-prices,
+        .filter-sizes {
+            display: flex;
+            flex-direction: column;
+            padding-left: 16px;
+            padding-right: 16px;
+            span {
+                display: flex;
+                justify-content: space-between;
+                text-transform: uppercase;
+                font-size: 24px;
+                color: $gray-dove;
+                margin-bottom: 30px;
+            }
+        }
+
+        .filter-colors,
+        .filter-prices {
+            label {
+                display: none;
+                font-size: 14px;
+            }
+        }
+
+        .filter-sizes {
+            .sizes-wrapper {
+                display: none;
+            }
+        }
+
+        .filter-colors.open,
+        .filter-prices.open {
+            label {
+                display: block;
+            }
+        }
+
+        .filter-sizes.open {
+            .sizes-wrapper {
+                display: grid;
+            }
+        }
+    }
+
+    .filter.open {
+        transform: translateX(0);
     }
 }

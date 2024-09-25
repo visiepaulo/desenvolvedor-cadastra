@@ -45,39 +45,95 @@
             </div>
 
             <div class="limit content-products">
-                <aside class="filter">
-                    <form>
-                        <div id="colors" class="filter-colors">
-                            <span>cores</span>
-                        </div>
-                        <div class="filter-sizes">
-                            <span>tamanhos</span>
-                            <div id="sizes" class="sizes-wrapper"></div>
-                        </div>
-                        <div id="prices" class="filter-prices">
-                            <span>Faixa de preço</span>
-                            <label>
-                                <input type="checkbox" name="price" value="0-50" /> de R$ 0,00 a R$ 50,00
-                                <span class="checkmark"></span>
-                            </label>
-                            <label>
-                                <input type="checkbox" name="price" value="51-150" /> de R$ 51,00 a R$ 150,00
-                                <span class="checkmark"></span>
-                            </label>
-                            <label>
-                                <input type="checkbox" name="price" value="151-300" /> de R$ 151,00 a R$ 300,00
-                                <span class="checkmark"></span>
-                            </label>
-                            <label>
-                                <input type="checkbox" name="price" value="301-500" /> de R$ 301,00 a R$ 500,00
-                                <span class="checkmark"></span>
-                            </label>
-                            <label>
-                                <input type="checkbox" name="price" value="500" /> a partir de R$ 500
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </form>
+                <aside id="filter" class="filter">
+                    <div class="filter-header limit">
+                        <span>filtrar</span
+                        ><button id="close-filter">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                fill="#000000"
+                                viewBox="0 0 256 256"
+                            >
+                                <path
+                                    d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"
+                                ></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="colors" class="filter-colors">
+                        <span id="colors-btn"
+                            >cores
+
+                            <svg
+                                width="20"
+                                height="15"
+                                viewBox="0 0 20 15"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path d="M1 1L10 14L19 1.0135" stroke="#666666" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="filter-sizes">
+                        <span id="sizes-btn"
+                            >tamanhos
+
+                            <svg
+                                width="20"
+                                height="15"
+                                viewBox="0 0 20 15"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path d="M1 1L10 14L19 1.0135" stroke="#666666" stroke-linecap="round" />
+                            </svg>
+                        </span>
+
+                        <div id="sizes" class="sizes-wrapper"></div>
+                    </div>
+                    <div id="prices" class="filter-prices">
+                        <span id="prices-btn"
+                            >Faixa de preço
+
+                            <svg
+                                width="20"
+                                height="15"
+                                viewBox="0 0 20 15"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path d="M1 1L10 14L19 1.0135" stroke="#666666" stroke-linecap="round" />
+                            </svg>
+                        </span>
+
+                        <label>
+                            <input type="checkbox" name="price" value="0-50" /> de R$ 0,00 a R$ 50,00
+                            <span class="checkmark"></span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="price" value="51-150" /> de R$ 51,00 a R$ 150,00
+                            <span class="checkmark"></span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="price" value="151-300" /> de R$ 151,00 a R$ 300,00
+                            <span class="checkmark"></span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="price" value="301-500" /> de R$ 301,00 a R$ 500,00
+                            <span class="checkmark"></span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="price" value="500" /> a partir de R$ 500
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="filter-footer limit">
+                        <button id="apply-filter" class="apply-filter">Aplicar filtros</button>
+                        <button id="clear-filter" class="clear-filter">Limpar filtros</button>
+                    </div>
                 </aside>
 
                 <article class="products">

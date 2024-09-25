@@ -146,6 +146,47 @@ function renderProducts(products: Product[]) {
 function main() {
     console.log(serverUrl)
 
+    // funções para lidar com cliques nos botões de filtro
+    const filter_btn = document.getElementById('filter-btn')
+    const filter = document.getElementById('filter')
+    const close_filter = document.getElementById('close-filter')
+    const apply_filter = document.getElementById('apply-filter')
+
+    if (filter_btn && filter && close_filter && apply_filter) {
+        filter_btn.addEventListener('click', () => {
+            filter.classList.add('open')
+        })
+
+        close_filter.addEventListener('click', () => {
+            filter.classList.remove('open')
+        })
+
+        apply_filter.addEventListener('click', () => {
+            filter.classList.remove('open')
+        })
+    }
+
+    const colors_btn = document.getElementById('colors-btn')
+    const filter_colors = document.querySelector('.filter-colors')
+    const sizes_btn = document.getElementById('sizes-btn')
+    const filter_sizes = document.querySelector('.filter-sizes')
+    const prices_btn = document.getElementById('prices-btn')
+    const filter_prices = document.querySelector('.filter-prices')
+
+    if (colors_btn && sizes_btn && prices_btn) {
+        colors_btn.addEventListener('click', () => {
+            filter_colors.classList.toggle('open')
+        })
+
+        sizes_btn.addEventListener('click', () => {
+            filter_sizes.classList.toggle('open')
+        })
+
+        prices_btn.addEventListener('click', () => {
+            filter_prices.classList.toggle('open')
+        })
+    }
+
     async function fetchProducts() {
         try {
             const response = await fetch('http://localhost:5000/products')
