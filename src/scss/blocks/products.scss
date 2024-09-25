@@ -34,7 +34,7 @@
 
             .product-card__figure {
                 .product-card__image {
-                    max-width: 100%;
+                    width: 100%;
                     margin-bottom: 10px;
                 }
 
@@ -60,25 +60,37 @@
                         color: $gray-dove;
                         margin-bottom: 14px;
                     }
-
-                    .buy-button {
-                        width: 100%;
-                        display: block;
-                        font-size: 14px;
-                        font-weight: bold;
-                        padding: 9px 18px;
-                        background-color: black;
-                        color: white;
-                        text-transform: uppercase;
-                        transition: transform 0.2s ease;
-
-                        &:hover {
-                            transform: scale(1.03);
-                        }
-                    }
                 }
             }
         }
+    }
+
+    .buy-button,
+    .load-more-btn {
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 9px 18px;
+        text-transform: uppercase;
+
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: scale(1.03);
+        }
+    }
+
+    .buy-button {
+        width: 100%;
+        background-color: black;
+        color: white;
+    }
+
+    .load-more-btn {
+        width: fit-content;
+        background-color: $orange;
+        color: white;
+        margin: 70px auto 36px;
     }
 }
 

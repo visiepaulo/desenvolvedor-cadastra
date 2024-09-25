@@ -32,6 +32,10 @@
         <main class="content">
             <div class="limit content-header">
                 <h1>Blusas</h1>
+                <div class="content-header__filters">
+                    <button id="filter-btn" class="filter-btn">Filtrar</button>
+                    <button id="sort-btn" class="sort-btn">Ordenar</button>
+                </div>
                 <select id="order" class="order">
                     <option value="">Ordenar por:</option>
                     <option value="recent">Mais recentes</option>
@@ -46,28 +50,40 @@
                         <div id="colors" class="filter-colors">
                             <span>cores</span>
                         </div>
-                        <div id="sizes" class="filter-sizes">
+                        <div class="filter-sizes">
                             <span>tamanhos</span>
+                            <div id="sizes" class="sizes-wrapper"></div>
                         </div>
                         <div id="prices" class="filter-prices">
                             <span>Faixa de preço</span>
-                            <label> <input type="checkbox" name="price" value="0-50" /> de R$ 0,00 a R$ 50,00 </label>
+                            <label>
+                                <input type="checkbox" name="price" value="0-50" /> de R$ 0,00 a R$ 50,00
+                                <span class="checkmark"></span>
+                            </label>
                             <label>
                                 <input type="checkbox" name="price" value="51-150" /> de R$ 51,00 a R$ 150,00
+                                <span class="checkmark"></span>
                             </label>
                             <label>
                                 <input type="checkbox" name="price" value="151-300" /> de R$ 151,00 a R$ 300,00
+                                <span class="checkmark"></span>
                             </label>
                             <label>
                                 <input type="checkbox" name="price" value="301-500" /> de R$ 301,00 a R$ 500,00
+                                <span class="checkmark"></span>
                             </label>
-                            <label> <input type="checkbox" name="price" value="500" /> a partir de R$ 500 </label>
+                            <label>
+                                <input type="checkbox" name="price" value="500" /> a partir de R$ 500
+                                <span class="checkmark"></span>
+                            </label>
                         </div>
                     </form>
                 </aside>
 
                 <article class="products">
                     <div id="products" class="product-list"></div>
+
+                    <button id="load-more" class="load-more-btn">Carregar mais</button>
                 </article>
             </div>
 

@@ -15,14 +15,61 @@
             color: $mine-shaft;
             font-size: 32px;
         }
+
+        .order {
+            font-size: 16px;
+            border: solid 1px $gray;
+            background-color: transparent;
+            padding: 10px;
+        }
+
+        .content-header__filters {
+            display: none;
+        }
     }
 
     .content-products {
         display: grid;
-        grid-template-columns: 1fr 80%;
+        grid-template-columns: 200px 1fr;
+    }
+}
 
-        @media screen and (max-width: 980px) {
-            grid-template-columns: 1fr;
+@media screen and (max-width: 980px) {
+    .content {
+        padding-top: 24px;
+
+        .content-header {
+            flex-direction: column;
+
+            h1 {
+                text-align: center;
+                margin-bottom: 12px;
+            }
+
+            .order {
+                display: none;
+            }
+
+            .content-header__filters {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+                button {
+                    display: block;
+                    color: $gray;
+                    border: 1px solid $gray;
+                    font-size: 24px;
+                    padding: 13px 16px;
+                    text-align: center;
+                    background: transparent;
+                }
+            }
+        }
+
+        .content-products {
+            @media screen and (max-width: 980px) {
+                grid-template-columns: 1fr;
+            }
         }
     }
 }
