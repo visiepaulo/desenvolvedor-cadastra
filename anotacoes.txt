@@ -1,8 +1,12 @@
 o que falta
 
-ordenar função 
-ordenar mobile design
-carregar mais produtos função
+ordenar função  ok
+ordenar mobile design ok 
+botão limpar filtros ok
+
+
+
+
 carrinho design
 adicionar ao carrinho função
-botão limpar filtros
+carregar mais produtos função

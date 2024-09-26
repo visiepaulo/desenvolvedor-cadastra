@@ -1,11 +1,10 @@
 import { Product } from '../models/Product'
 
-export default function renderProducts(products: Product[], productsPerPage: number, displayedProducts: Product[]) {
+export default function renderProducts(products: Product[]) {
     const container = document.getElementById('products')
     if (container) {
         container.innerHTML = ''
-        displayedProducts = products.slice(0, productsPerPage)
-        displayedProducts.forEach(product => {
+        products.forEach(product => {
             const productElement = document.createElement('a')
             productElement.className = 'product-card'
             productElement.href = '#'

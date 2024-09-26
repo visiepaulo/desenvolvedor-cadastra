@@ -1,5 +1,4 @@
 export default function renderFilters(colors: string[], sizes: string[]) {
-    console.log('colors:', colors)
     const colorsContainer = document.getElementById('colors')
     const sizesContainer = document.getElementById('sizes')
 
