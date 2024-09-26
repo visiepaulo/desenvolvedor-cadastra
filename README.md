@@ -88,7 +88,9 @@ nenhum framework, porem caso deseje utilizar frameworks como react, é possível
 
 ## Atualizações do candidato
 
-Para rodar o projeto basta utilizar os mesmos passos iniciais, npm install e npm run start
+Para rodar o projeto basta utilizar os mesmos passos iniciais, npm install e npm run start.
+
+##### O projeto foi desenvolvido utilizando HTML simples e várias chamadas de querySelector para manipulação do DOM, conforme especificado no desafio.
 
 ##### Email de contato: [paulosouzadiniz@hotmail.com](mailto:paulosouzadiniz@hotmail.com)
 
