@@ -9,4 +9,27 @@
     justify-content: space-between;
     padding-top: 20px;
     padding-bottom: 20px;
+
+    .cart-btn {
+        position: relative;
+
+        span {
+            display: none;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            right: 0px;
+            bottom: 0px;
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            font-size: 10px;
+            color: white;
+            background-color: $orange;
+        }
+
+        span.active {
+            display: flex;
+        }
+    }
 }

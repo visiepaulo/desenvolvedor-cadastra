@@ -7,6 +7,7 @@ import extractFilters from './functions/extractFilters'
 import setupFilterListeners from './functions/setupFilterListeners'
 import setupSortListeners from './functions/setupSortListeners'
 import setupCartListeners from './functions/setupCartListeners'
+import loadCartFromLocalStorage from './functions/loadCartFromLocalStorage'
 import { clickListeners } from './functions/clickListeners'
 
 // MODEL
@@ -24,6 +25,8 @@ async function main() {
     console.log(serverUrl)
 
     clickListeners()
+
+    loadCartFromLocalStorage()
 
     const products = await fetchProducts()
     const validProducts = products.filter(isProduct)

@@ -1,3 +1,5 @@
+import { CartItem } from '../models/CartItem'
+
 export function addToCart(productId: string): void {
     const cart: CartItem[] = JSON.parse(localStorage.getItem('cart') || '[]')
 
@@ -39,10 +41,11 @@ export function addToCart(productId: string): void {
     document.querySelector('.mask')?.classList.add('active')
 
     updateCartDisplay(cart)
+    updateTotalAndQuantity(cart)
 }
 
 // Função para atualizar a exibição do carrinho
-function updateCartDisplay(cart: CartItem[]): void {
+export function updateCartDisplay(cart: CartItem[]): void {
     const cartContainer = document.getElementById('product-list-in-cart')
     if (!cartContainer) return
 
@@ -65,4 +68,28 @@ function updateCartDisplay(cart: CartItem[]): void {
         `
         cartContainer.appendChild(productElement)
     })
+}
+
+export function updateTotalAndQuantity(cart: CartItem[]): void {
+    const totalElement = document.getElementById('value-total')
+    const cartIcon = document.getElementById('qtd-items')
+
+    if (!totalElement) return
+
+    let totalValue = 0
+    let totalQuantity = 0
+
+    cart.forEach(item => {
+        totalValue += item.price * item.quantity
+        totalQuantity += item.quantity
+    })
+
+    if (totalQuantity > 0) {
+        if (cartIcon) {
+            cartIcon.classList.add('active')
+            cartIcon.innerText = `${totalQuantity.toString()}`
+        }
+    }
+
+    totalElement.innerText = `R$ ${totalValue.toFixed(2).replace('.', ',')}`
 }
