@@ -3,10 +3,6 @@ o que falta
 ordenar função  ok
 ordenar mobile design ok 
 botão limpar filtros ok
-
-
-
-
-carrinho design
-adicionar ao carrinho função
+carrinho design ok
+adicionar ao carrinho função ok
 carregar mais produtos função

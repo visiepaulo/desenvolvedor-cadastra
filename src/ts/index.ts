@@ -41,11 +41,19 @@ async function main() {
     setupSortListeners(store)
     setupCartListeners()
 
-    // const loadMoreButton = document.getElementById('load-more')
+    const loadMoreButton = document.getElementById('load-more') as HTMLButtonElement
 
-    // if (loadMoreButton) {
-    //     loadMoreButton.addEventListener('click', showMoreProducts)
-    // }
+    if (loadMoreButton) {
+        loadMoreButton.addEventListener('click', () => {
+            console.log('Carregar mais produtos')
+            store.showMoreProducts()
+            renderProducts(store.displayedProducts)
+
+            if (store.displayedProducts.length === store.currentProducts.length) {
+                loadMoreButton.style.display = 'none'
+            }
+        })
+    }
 }
 
 document.addEventListener('DOMContentLoaded', main)
