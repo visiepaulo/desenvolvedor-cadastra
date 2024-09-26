@@ -8,6 +8,7 @@ export default function renderProducts(products: Product[]) {
             const productElement = document.createElement('a')
             productElement.className = 'product-card'
             productElement.href = '#'
+            productElement.id = product.id
             productElement.innerHTML = `
                 <figure class="product-card__figure">
                     <img class="product-card__image" src="${product.image}" alt="${product.name}" />

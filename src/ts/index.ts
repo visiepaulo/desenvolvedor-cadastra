@@ -6,6 +6,7 @@ import isProduct from './functions/isProduct'
 import extractFilters from './functions/extractFilters'
 import setupFilterListeners from './functions/setupFilterListeners'
 import setupSortListeners from './functions/setupSortListeners'
+import setupCartListeners from './functions/setupCartListeners'
 import { clickListeners } from './functions/clickListeners'
 
 // MODEL
@@ -35,6 +36,7 @@ async function main() {
 
     setupFilterListeners(store)
     setupSortListeners(store)
+    setupCartListeners()
 
     // const loadMoreButton = document.getElementById('load-more')
 

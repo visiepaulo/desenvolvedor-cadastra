@@ -52,4 +52,25 @@ export function clickListeners() {
             })
         })
     }
+
+    const cart_btn = document.querySelectorAll('.cart-btn')
+    const cart_container = document.querySelector('.cart')
+    const mask = document.querySelector('.mask')
+
+    console.log(cart_btn, cart_container, mask)
+
+    if (cart_btn.length > 0 && cart_container && mask) {
+        cart_btn.forEach(btn => {
+            btn.addEventListener('click', () => {
+                console.log('click')
+                cart_container.classList.toggle('open')
+                mask.classList.toggle('active')
+            })
+        })
+
+        mask.addEventListener('click', () => {
+            cart_container.classList.remove('open')
+            mask.classList.remove('active')
+        })
+    }
 }
